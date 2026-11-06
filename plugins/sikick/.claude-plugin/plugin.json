@@ -9,6 +9,10 @@
   },
   "homepage": "https://www.sikick.si",
   "repository": "https://github.com/sikick-app/sikick",
+  "documentationUrl": "https://github.com/sikick-app/sikick/tree/main/plugins/sikick#readme",
+  "supportUrl": "mailto:contact@sikick.si",
+  "privacyPolicyUrl": "https://www.sikick.si/privacy",
+  "termsOfServiceUrl": "https://www.sikick.si/terms",
   "license": "MIT",
   "keywords": ["sikick", "time-tracking", "planning", "productivity", "tasks", "mcp"],
   "userConfig": {
