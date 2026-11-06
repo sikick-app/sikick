@@ -1,0 +1,40 @@
+{
+  "name": "sikick",
+  "displayName": "SiKick",
+  "version": "0.3.0",
+  "description": "Turn Claude Code sessions into SiKick work: link the session to the fitting card on My day, track worked time on it, then mark it done or worked on and turn follow-ups into cards you pick",
+  "author": {
+    "name": "SiKick",
+    "url": "https://www.sikick.si"
+  },
+  "homepage": "https://www.sikick.si",
+  "repository": "https://github.com/sikick-app/sikick",
+  "license": "MIT",
+  "keywords": ["sikick", "time-tracking", "planning", "productivity", "tasks", "mcp"],
+  "userConfig": {
+    "sikick_url": {
+      "type": "string",
+      "title": "SiKick address",
+      "description": "Base address of your SiKick (https, no trailing slash). The SIKICK_URL environment variable wins over this.",
+      "default": "https://www.sikick.si"
+    },
+    "mcp_url": {
+      "type": "string",
+      "title": "SiKick account MCP address",
+      "description": "The account MCP server (my_day, my_cards, search …). Change it together with the SiKick address.",
+      "default": "https://www.sikick.si/mcp"
+    },
+    "suggest_cards": {
+      "type": "boolean",
+      "title": "Suggest a card at session start",
+      "description": "On: at the start of a session SiKick suggests the card on My day that fits this folder / branch (matched on your computer); answer with one key. Off: link with /sikick:start only.",
+      "default": true
+    },
+    "send_prompts": {
+      "type": "boolean",
+      "title": "Also send prompt text",
+      "description": "Off by default: SiKick gets only session, folder, tool names, changed file paths and times. Turn on to also send what you type (first 4000 characters).",
+      "default": false
+    }
+  }
+}

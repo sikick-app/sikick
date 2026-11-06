@@ -1,0 +1,11 @@
+{
+  "name": "sikick-claude-plugin-dev",
+  "private": true,
+  "description": "Development and tests for the SiKick Claude Code plugin (the plugin itself is plugins/sikick; nothing here is installed by users)",
+  "type": "module",
+  "scripts": {
+    "test": "node --test --test-timeout=20000 test/*.test.mjs",
+    "test:e2e": "node test/e2e-local.mjs",
+    "validate": "claude plugin validate ./plugins/sikick --strict && claude plugin validate . --strict"
+  }
+}

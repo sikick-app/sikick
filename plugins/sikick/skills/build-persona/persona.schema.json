@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "sikick.persona/v1",
+  "title": "SiKick persona profile",
+  "description": "What SiKick and the sikick-coach skill know about how this person works. Built locally, approved by the person, then uploaded. No transcript text, no secrets, no other people's data.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "updated", "summary", "working_style", "communication", "coach"],
+  "properties": {
+    "schema": { "const": "sikick.persona/v1" },
+    "updated": { "type": "string", "description": "ISO date" },
+    "summary": { "type": "string", "maxLength": 400, "description": "Two or three sentences in second person: how you work" },
+    "role": { "type": "string", "maxLength": 120 },
+    "working_style": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "peak_hours": { "type": "array", "items": { "type": "string", "pattern": "^\\d{2}-\\d{2}$" }, "description": "e.g. 09-12" },
+        "typical_session_min": { "type": "number" },
+        "pace": { "enum": ["fast-iterative", "steady", "deep-focus"] },
+        "parallel_agents": { "enum": ["always", "often", "sometimes", "rarely"] },
+        "notes": { "type": "array", "items": { "type": "string", "maxLength": 160 }, "maxItems": 8 }
+      }
+    },
+    "communication": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "reply_length": { "enum": ["very-short", "short", "medium", "long"] },
+        "tone": { "type": "string", "maxLength": 120 },
+        "languages": { "type": "array", "items": { "type": "string" } },
+        "likes": { "type": "array", "items": { "type": "string", "maxLength": 160 }, "maxItems": 8 },
+        "dislikes": { "type": "array", "items": { "type": "string", "maxLength": 160 }, "maxItems": 8 }
+      }
+    },
+    "tech": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "languages": { "type": "array", "items": { "type": "string" } },
+        "stack": { "type": "array", "items": { "type": "string" } },
+        "tools": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "projects": { "type": "array", "maxItems": 12, "items": { "type": "object", "additionalProperties": false, "required": ["name"], "properties": { "name": { "type": "string" }, "what": { "type": "string", "maxLength": 160 } } } },
+    "coach": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "nudge_style": { "enum": ["quiet", "brief", "chatty"] },
+        "progress_every_min": { "type": "number", "description": "How often the coach posts a progress line to SiKick" },
+        "suggest_parallel_over_min": { "type": "number", "description": "Suggest parallel agents for tasks bigger than this" },
+        "watch_outs": { "type": "array", "items": { "type": "string", "maxLength": 160 }, "maxItems": 6 }
+      }
+    },
+    "stats": {
+      "type": "object", "additionalProperties": false, "description": "Counts only, from the local scan",
+      "properties": { "window_days": { "type": "number" }, "sessions": { "type": "number" }, "active_days": { "type": "number" }, "median_prompt_chars": { "type": "number" }, "top_tools": { "type": "array", "items": { "type": "string" } } }
+    }
+  }
+}

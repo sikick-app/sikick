@@ -1,0 +1,15 @@
+{
+  "name": "sikick",
+  "description": "SiKick for Claude Code: your SiKick day, cards and coach inside Claude Code",
+  "owner": {
+    "name": "SiKick",
+    "url": "https://www.sikick.si"
+  },
+  "plugins": [
+    {
+      "name": "sikick",
+      "source": "./plugins/sikick",
+      "description": "Turn Claude Code sessions into SiKick work: the fitting card from My day, worked time on it, done or worked on at the end, follow-ups into cards you pick"
+    }
+  ]
+}
